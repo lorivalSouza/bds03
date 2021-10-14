@@ -2,12 +2,18 @@ package com.devsuperior.bds03.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import com.devsuperior.bds03.entities.Department;
 
 public class DepartmentDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	public Long id;
+	
+	@Size(min = 5, max = 100, message = "Campo nome deve ter entre 5 e 100 caracteres")
+	@NotBlank(message = "Campo obrigatório.")
 	public String name;
 	
 	public DepartmentDTO() {
